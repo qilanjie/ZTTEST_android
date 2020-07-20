@@ -1,0 +1,40 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 29
+    defaultConfig {
+        applicationId "com.zh.bottomnavigationview"
+        minSdkVersion 19
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+
+    }
+    sourceSets {
+        main {
+            jni.srcDirs = ['JniLibs']
+        }
+    }
+    buildToolsVersion = '29.0.3'
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'com.google.android.material:material:1.1.0'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    implementation 'androidx.recyclerview:recyclerview:1.1.0'
+    implementation files('libs/jxl.jar')
+    implementation 'com.github.mjdev:libaums:0.6.0'
+    implementation 'com.qmuiteam:qmui:1.4.0'
+    implementation 'com.nightonke:boommenu:2.1.1'
+    implementation "androidx.versionedparcelable:versionedparcelable:1.1.0"
+//    compile 'com.android.support:support-v4:26.0.0-alpha1'
+}
