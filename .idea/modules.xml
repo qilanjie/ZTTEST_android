@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/ZTTEST.iml" filepath="$PROJECT_DIR$/ZTTEST.iml" group="ZTTEST" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" group="ZTTEST/app" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ZTTEST_android.iml" filepath="$PROJECT_DIR$/.idea/modules/ZTTEST_android.iml" group="ZTTEST_android" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" group="ZTTEST_android/app" />
     </modules>
   </component>
 </project>

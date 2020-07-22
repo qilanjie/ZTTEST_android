@@ -192,7 +192,7 @@ public class MainActivity extends SerialPortActivity {
         pagerAdapter = new PagerAdapter(getSupportFragmentManager(), fragmentList);
         viewPager.setAdapter(pagerAdapter);
 
-        viewPager.setCurrentItem(0);//viewPager默认显示第一页
+        viewPager.setCurrentItem(2);//viewPager默认显示第一页
         bottomNavigationView.getMenu().getItem(0).setChecked(true);//底部按钮默认选中第一个
     }
 
@@ -260,7 +260,7 @@ public class MainActivity extends SerialPortActivity {
                         mOutputStream.write(mBuffer);
                         if (once)
                             stopSend = true;
-                        sleep(1000);
+                        sleep(480);
                         sendCount++;
                         if (once)
                             stopSend = true;
