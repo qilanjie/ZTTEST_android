@@ -25,48 +25,6 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <ToggleButton
-            android:id="@+id/toggleButton1"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:text="ToggleButton"
-            android:textOff="电磁阀1+2关"
-            android:textOn="电磁阀1+2开"
-
-            android:textSize="30sp"
-            app:layout_constraintBottom_toTopOf="@+id/guideline5"
-            app:layout_constraintEnd_toStartOf="@+id/guideline"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/guideline4" />
-
-        <ToggleButton
-            android:id="@+id/toggleButton3"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:text="ToggleButton"
-            android:textOff="电磁阀3关"
-
-            android:textOn="电磁阀3开"
-            android:textSize="30sp"
-            app:layout_constraintBottom_toTopOf="@+id/guideline5"
-            app:layout_constraintEnd_toStartOf="@+id/guideline2"
-            app:layout_constraintStart_toStartOf="@+id/guideline"
-            app:layout_constraintTop_toTopOf="@+id/guideline4" />
-
-        <ToggleButton
-            android:id="@+id/toggleButton4"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:text="ToggleButton"
-            android:textOff="电磁阀4关"
-            android:textOn="电磁阀4开"
-
-            android:textSize="30sp"
-            app:layout_constraintBottom_toTopOf="@+id/toggleButton8"
-            app:layout_constraintEnd_toStartOf="@+id/guideline3"
-            app:layout_constraintStart_toStartOf="@+id/guideline2"
-            app:layout_constraintTop_toTopOf="@+id/guideline4" />
-
-        <ToggleButton
             android:id="@+id/toggleButton5"
             android:layout_width="0dp"
             android:layout_height="0dp"
@@ -280,7 +238,7 @@
             app:layout_constraintTop_toTopOf="@+id/guideline8" />
 
         <ToggleButton
-            android:id="@+id/toggleButton1_2_3_4"
+            android:id="@+id/toggleButton1"
             android:layout_width="0dp"
             android:layout_height="0dp"
 
@@ -288,10 +246,10 @@
             android:textOff="1+2+3+4关"
             android:textOn="1+2+3+4开"
             android:textSize="30sp"
-            app:layout_constraintBottom_toTopOf="@+id/guideline9"
-            app:layout_constraintEnd_toStartOf="@+id/guideline3"
-            app:layout_constraintStart_toStartOf="@+id/guideline2"
-            app:layout_constraintTop_toTopOf="@+id/guideline8" />
+            app:layout_constraintBottom_toTopOf="@+id/guideline5"
+            app:layout_constraintEnd_toStartOf="@+id/guideline"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/guideline4" />
 
         <ToggleButton
             android:id="@+id/toggleButtonMS"
