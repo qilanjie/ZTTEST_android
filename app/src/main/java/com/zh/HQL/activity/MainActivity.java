@@ -391,11 +391,11 @@ public class MainActivity extends SerialPortActivity {
 
                     yali1 = (buffer[4] & 0xFF) * 256 + (buffer[5] & 0xFF);
                     yali2 = (buffer[6] & 0xFF) * 256 + (buffer[7] & 0xFF);
-                    wd1 = (buffer[8] & 0xFF) * 256 + (buffer[9] & 0xFF);
-                    wd2 = (buffer[10] & 0xFF) * 256 + (buffer[11] & 0xFF);
-                    wd3 = (buffer[12] & 0xFF) * 256 + (buffer[13] & 0xFF);
-                    wd4 = (buffer[14] & 0xFF) * 256 + (buffer[15] & 0xFF);
-                    yeti = (byte) (buffer[16] & 0xFF);
+//                    wd1 = (buffer[8] & 0xFF) * 256 + (buffer[9] & 0xFF);
+//                    wd2 = (buffer[10] & 0xFF) * 256 + (buffer[11] & 0xFF);
+//                    wd3 = (buffer[12] & 0xFF) * 256 + (buffer[13] & 0xFF);
+//                    wd4 = (buffer[14] & 0xFF) * 256 + (buffer[15] & 0xFF);
+//                    yeti = (byte) (buffer[16] & 0xFF);
 //			Log.d("qwh", String.valueOf(buffer[16])+" "+String.valueOf(buffer[16])+" "+String.valueOf(buffer[16])+" "+String.valueOf(buffer[16]));
                     if (mSendingThread != null)
                         mSendingThread.setStopSend(true);

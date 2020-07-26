@@ -3,7 +3,9 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/ZTTEST_android.iml" filepath="$PROJECT_DIR$/.idea/modules/ZTTEST_android.iml" group="ZTTEST_android" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/ZTTEST_android-app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/ZTTEST_android-app.iml" group="ZTTEST_android/app" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" group="ZTTEST_android/app" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/qiwenhua-ZTTEST_android.iml" filepath="$PROJECT_DIR$/.idea/modules/qiwenhua-ZTTEST_android.iml" group="ZTTEST_android" />
     </modules>
   </component>
 </project>

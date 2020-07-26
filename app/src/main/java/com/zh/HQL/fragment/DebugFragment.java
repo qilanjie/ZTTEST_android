@@ -26,8 +26,8 @@ public class DebugFragment extends ViewPagerFragment {
     TextView TextView_yali;
     ToggleButton toggleButton1;
     //    ToggleButton toggleButton2;
-    ToggleButton toggleButton3;
-    ToggleButton toggleButton4;
+//    ToggleButton toggleButton3;
+ //   ToggleButton toggleButton4;
     ToggleButton toggleButton5;
     ToggleButton toggleButton6;
     ToggleButton toggleButton7;
@@ -43,7 +43,7 @@ public class DebugFragment extends ViewPagerFragment {
     ToggleButton toggleButton17;
     ToggleButton toggleButton19;
     ToggleButton toggleButton20;
-    ToggleButton toggleButton1234;
+//    ToggleButton toggleButton1234;
     ToggleButton toggleButtonMS;
     ToggleButton toggleButtonSX;
     ToggleButton toggleButtonXX;
@@ -57,14 +57,14 @@ public class DebugFragment extends ViewPagerFragment {
         }
 
         void update() {
-            if (toggleButton1.isChecked()) kg = kg | 0x03;
+            if (toggleButton1.isChecked()) kg = kg | 0x01;
             else kg = kg & ~0x01;
 //            if (toggleButton2.isChecked()) kg = kg | 0x02;
 //            else kg = kg & ~0x02;
-            if (toggleButton3.isChecked()) kg = kg | 0x04;
-            else kg = kg & ~0x04;
-            if (toggleButton4.isChecked()) kg = kg | 0x08;
-            else kg = kg & ~0x08;
+//            if (toggleButton3.isChecked()) kg = kg | 0x04;
+//            else kg = kg & ~0x04;
+//            if (toggleButton4.isChecked()) kg = kg | 0x08;
+//            else kg = kg & ~0x08;
             if (toggleButton5.isChecked()) kg = kg | 0x10;
             else kg = kg & ~0x10;
             if (toggleButton6.isChecked()) kg = kg | 0x20;
@@ -89,19 +89,17 @@ public class DebugFragment extends ViewPagerFragment {
             else kg = kg & ~0x4000;
             if (toggleButton16.isChecked()) kg = kg | 0x8000;
             else kg = kg & ~0x8000;
-            if (toggleButton17.isChecked()) kg = kg | 0x30000;
-            else kg = kg & ~0x30000;
+            if (toggleButton17.isChecked()) kg = kg | 0x10000;
+            else kg = kg & ~0x10000;
             if (toggleButton19.isChecked()) kg = kg | 0x40000;
             else kg = kg & ~0x40000;
             if (toggleButton20.isChecked()) kg = kg | 0x80000;
             else kg = kg & ~0x80000;
-            if (toggleButton1234.isChecked()) kg = kg | 0x100000;
-            else kg = kg & ~0x100000;
-            if (toggleButtonMS.isChecked()) kg = kg | 0x200000;
+            if (toggleButtonMS.isChecked()) kg = kg | 0x200000;//22
             else kg = kg & ~0x200000;
-            if (toggleButtonSX.isChecked()) kg = kg | 0x400000;
+            if (toggleButtonSX.isChecked()) kg = kg | 0x400000;//23
             else kg = kg & ~0x400000;
-            if (toggleButtonXX.isChecked()) kg = kg | 0x800000;
+            if (toggleButtonXX.isChecked()) kg = kg | 0x800000;//24
             else kg = kg & ~0x800000;
             mainActivity.mBuffer = new byte[8];
             mainActivity.mBuffer[0] = 0x5A;
@@ -169,8 +167,8 @@ public class DebugFragment extends ViewPagerFragment {
         );
         toggleButton1 =  view.findViewById(R.id.toggleButton1);
 //        toggleButton2=(ToggleButton)view.findViewById(R.id.toggleButton2);
-        toggleButton3 =  view.findViewById(R.id.toggleButton3);
-        toggleButton4 = view.findViewById(R.id.toggleButton4);
+//        toggleButton3 =  view.findViewById(R.id.toggleButton3);
+//        toggleButton4 = view.findViewById(R.id.toggleButton4);
         toggleButton5 =  view.findViewById(R.id.toggleButton5);
         toggleButton6 =  view.findViewById(R.id.toggleButton6);
         toggleButton7 = view.findViewById(R.id.toggleButton7);
@@ -186,61 +184,14 @@ public class DebugFragment extends ViewPagerFragment {
         toggleButton17 = view.findViewById(R.id.toggleButton17);
         toggleButton19 = view.findViewById(R.id.toggleButton19);
         toggleButton20 = view.findViewById(R.id.toggleButton20);
-        toggleButton1234= view.findViewById(R.id.toggleButton1_2_3_4);
+//        toggleButton1234= view.findViewById(R.id.toggleButton1_2_3_4);
         toggleButtonMS = view.findViewById(R.id.toggleButtonMS);
         toggleButtonSX = view.findViewById(R.id.toggleButtonSX);
         toggleButtonXX = view.findViewById(R.id.toggleButtonXX);
-toggleButton1234.setOnClickListener(new View.OnClickListener() {
-    @Override
-    public void onClick(View v) {
-        if (toggleButton1234.isChecked()) {
-            toggleButton1.setChecked(true);
-            toggleButton3.setChecked(true);
-            toggleButton4.setChecked(true);
 
-        } else {
-            toggleButton1.setChecked(false);
-            toggleButton3.setChecked(false);
-            toggleButton4.setChecked(false);
-        }
-    }
-});
-    toggleButton1.setOnClickListener(new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            if (toggleButton1.isChecked()) {
-                if (toggleButton3.isChecked()&&toggleButton4.isChecked()) {
-                    toggleButton1234.setChecked(true);
-                }
-            } else {
-                toggleButton1234.setChecked(false);
-            }
-        }
-    });
-        toggleButton3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (toggleButton3.isChecked()) {
-                    if (toggleButton1.isChecked()&&toggleButton4.isChecked()) {
-                        toggleButton1234.setChecked(true);
-                    }
-                } else {
-                    toggleButton1234.setChecked(false);
-                }
-            }
-        });
-     toggleButton4.setOnClickListener(new View.OnClickListener() {
-         @Override
-         public void onClick(View v) {
-             if (toggleButton4.isChecked()) {
-                 if (toggleButton1.isChecked()&&toggleButton3.isChecked()) {
-                     toggleButton1234.setChecked(true);
-                 }
-             } else {
-                 toggleButton1234.setChecked(false);
-             }
-         }
-     });
+
+
+
 
 
     }
@@ -249,9 +200,9 @@ toggleButton1234.setOnClickListener(new View.OnClickListener() {
         // Log.d("qwh", Integer.toString(mainActivity.rec_state));
         mainActivity.runOnUiThread(new Runnable() {
             public void run() {
-                float yalif1 = MainActivity.yali1 * 2.490f / 65536 / 129.98f * 10160;
+                float yalif1 = MainActivity.yali1 * 2.490f / 65536 / 125 * 10000;
 //                String yali1 = String.valueOf((double) (Math.round(yalif1 * 1000)) / 1000);
-                float yalif2 = MainActivity.yali2 * 2.492f / 65536 / 128 * 15221 + (float) (MainActivity.daqiya) / 1000;
+                float yalif2 = MainActivity.yali2 * 2.490f / 65536 / 125 * 10000;
 //                String yali2 = String.valueOf((double) (Math.round(yalif2 * 1000)) / 1000);
                 float vp = 2.492f * MainActivity.wd1 / (4096 * 51) + 2.988f / 21;
                 float rp = (float) (2000 * vp) / (2.988f - vp);
