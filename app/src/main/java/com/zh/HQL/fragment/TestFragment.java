@@ -77,8 +77,8 @@ public class TestFragment extends ViewPagerFragment {
             mainActivity.mBuffer[4] = (byte) (kg >> 8);
             mainActivity.mBuffer[5] = (byte) kg;
             mainActivity.mBuffer[6] = (byte) (mainActivity.mBuffer[3] ^ mainActivity.mBuffer[4] ^ mainActivity.mBuffer[5]);
-            mainActivity.stopSend = false;
-            mainActivity.sendonce(true);
+//            mainActivity.stopSend = false;
+//            mainActivity.sendonce(true);
             float yalif1 = mainActivity.yali1 * 2.492f / 65536 * 2;
 //            TextView_YaLi1.setText(new DecimalFormat("0.000").format(yalif1) );
             second++;
@@ -146,8 +146,8 @@ public class TestFragment extends ViewPagerFragment {
             mainActivity.mBuffer[2] = 0x02;
             mainActivity.mBuffer[3] = 0x10;
             mainActivity.mBuffer[4] = 0x10;
-            mainActivity.stopSend = false;
-            mainActivity.sendonce(false);
+//            mainActivity.stopSend = false;
+//            mainActivity.sendonce(false);
             handler.postDelayed(runnable, 500 * 1);
             isEnd = true;
 

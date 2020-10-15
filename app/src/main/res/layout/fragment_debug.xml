@@ -11,16 +11,26 @@
         android:layout_height="match_parent"
         android:background="#80000000">
 
+        <Button
+            android:id="@+id/buttonCX"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:text="冲洗"
+            android:textSize="30sp"
+            app:layout_constraintBottom_toTopOf="@+id/guideline10"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/guideline3"
+            app:layout_constraintTop_toTopOf="@+id/guideline9" />
+
         <TextView
             android:id="@+id/TextView_yali"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
             android:layout_gravity="center"
             android:text="调试"
             android:textColor="#FFE51A"
             android:textSize="30sp"
             app:layout_constraintBottom_toTopOf="@+id/guideline4"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -200,8 +210,8 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:text="ToggleButton"
-            android:textOff="超声17关"
-            android:textOn="超声17开"
+            android:textOff="C17关"
+            android:textOn="C17开"
 
             android:textSize="30sp"
             app:layout_constraintBottom_toTopOf="@+id/guideline8"
@@ -229,8 +239,8 @@
             android:layout_height="0dp"
 
             android:text="ToggleButton"
-            android:textOff="快搅20关"
-            android:textOn="快搅20开"
+            android:textOff="J20关"
+            android:textOn="J20开"
             android:textSize="30sp"
             app:layout_constraintBottom_toTopOf="@+id/guideline9"
             app:layout_constraintEnd_toStartOf="@+id/guideline2"
@@ -243,8 +253,8 @@
             android:layout_height="0dp"
 
             android:text="ToggleButton"
-            android:textOff="1+2+3+4关"
-            android:textOn="1+2+3+4开"
+            android:textOff="1关"
+            android:textOn="1开"
             android:textSize="30sp"
             app:layout_constraintBottom_toTopOf="@+id/guideline5"
             app:layout_constraintEnd_toStartOf="@+id/guideline"
@@ -362,6 +372,64 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             app:layout_constraintGuide_percent="0.98" />
+
+        <Button
+            android:id="@+id/buttonJY"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:text="进样"
+            android:textSize="30sp"
+            app:layout_constraintBottom_toTopOf="@+id/guideline9"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/guideline3"
+            app:layout_constraintTop_toTopOf="@+id/guideline8" />
+
+        <Button
+            android:id="@+id/buttonBD"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:text="标定"
+            android:textSize="30sp"
+            app:layout_constraintBottom_toTopOf="@+id/guideline10"
+            app:layout_constraintEnd_toStartOf="@+id/guideline"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/guideline9" />
+
+        <ToggleButton
+            android:id="@+id/toggleButtonTS"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+
+            android:text="ToggleButton"
+            android:textOff="调试关"
+            android:textOn="调试开"
+            android:textSize="30sp"
+            app:layout_constraintBottom_toTopOf="@+id/guideline10"
+            app:layout_constraintEnd_toStartOf="@+id/guideline2"
+            app:layout_constraintStart_toStartOf="@+id/guideline"
+            app:layout_constraintTop_toTopOf="@+id/guideline9" />
+
+        <Button
+            android:id="@+id/buttonSY"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:text="试验"
+            android:textSize="30sp"
+            app:layout_constraintBottom_toTopOf="@+id/guideline10"
+            app:layout_constraintEnd_toStartOf="@+id/guideline3"
+            app:layout_constraintStart_toStartOf="@+id/guideline2"
+            app:layout_constraintTop_toTopOf="@+id/guideline9" />
+
+        <Button
+            android:id="@+id/buttonSY2"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:text="试验2"
+            android:textSize="30sp"
+            app:layout_constraintBottom_toTopOf="@+id/guideline4"
+            app:layout_constraintEnd_toStartOf="@+id/guideline3"
+            app:layout_constraintStart_toStartOf="@+id/guideline2"
+            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

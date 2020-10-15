@@ -13,10 +13,14 @@ import android.hardware.usb.UsbManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.SystemClock;
+
 import androidx.annotation.NonNull;
+
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
+
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.MotionEvent;
@@ -46,7 +50,7 @@ import java.util.Calendar;
 import java.util.List;
 
 public class MainActivity extends SerialPortActivity {
-   public static float v1, v2, v3;
+    public static float v1, v2, v3;
     public static int daqiya;
     public static boolean isShow;
     public static int rec_state;
@@ -94,13 +98,13 @@ public class MainActivity extends SerialPortActivity {
         initData();
         initListener();
         hideBottomUIMenu();
-        registerUDiskReceiver();
+  //      registerUDiskReceiver();
         SharedPreferences pref = getSharedPreferences("data", MODE_PRIVATE);
-         v1 = pref.getFloat("v1", 0.0f);
+        v1 = pref.getFloat("v1", 0.0f);
         v2 = pref.getFloat("v2", 0.0f);
         v3 = pref.getFloat("v3", 0.0f);
-        daqiya=pref.getInt("daqiya",0);
-        isShow=pref.getBoolean("isShow",false);
+        daqiya = pref.getInt("daqiya", 0);
+        isShow = pref.getBoolean("isShow", false);
 
         textClock = (TextClock) findViewById(R.id.textClock1);
         textClock.setOnTouchListener(new View.OnTouchListener() {
@@ -193,7 +197,7 @@ public class MainActivity extends SerialPortActivity {
         viewPager.setAdapter(pagerAdapter);
 
         viewPager.setCurrentItem(2);//viewPager默认显示第一页
-        bottomNavigationView.getMenu().getItem(0).setChecked(true);//底部按钮默认选中第一个
+        bottomNavigationView.getMenu().getItem(2).setChecked(true);//底部按钮默认选中第一个
     }
 
     private void initListener() {
@@ -258,12 +262,10 @@ public class MainActivity extends SerialPortActivity {
                 try {
                     if (mOutputStream != null) {
                         mOutputStream.write(mBuffer);
+                        sleep(100);
                         if (once)
                             stopSend = true;
-                        sleep(480);
                         sendCount++;
-                        if (once)
-                            stopSend = true;
                         if (sendCount == 10) {
                             sendCount = 0;
                             stopSend = true;
@@ -294,96 +296,12 @@ public class MainActivity extends SerialPortActivity {
     @Override
     protected void onDataReceived(byte[] buffer, int size) {
         if ((buffer[0] == 0x5A) && (buffer[1] == (byte) 0xA5) && (buffer[2] == size - 3)) {
-//			 Log.d("qwh", String.valueOf(buffer[0]) + "," + String.valueOf(buffer[1]));
+			 Log.d("qwh", String.valueOf(buffer[2]) + "," + String.valueOf(buffer[3])+ "," + String.valueOf(buffer[4])+ "," + String.valueOf(buffer[5])+ "," + String.valueOf(buffer[6])+ "," + String.valueOf(buffer[7]));
             switch (buffer[3]) {
-                case 0x01:
 
-                    rec_state = 0x01;
-                    if (mSendingThread != null)
-                        mSendingThread.setStopSend(true);
-                    break;
-                case 0x02:
 
-                    rec_state = 0x02;
-                    if (mSendingThread != null)
-                        mSendingThread.setStopSend(true);
-                    break;
-                case 0x03:
-                    mBuffer = new byte[5];
-                    mBuffer[0] = 0x5A;
-                    mBuffer[1] = (byte) 0xA5;
-                    mBuffer[2] = 0x02;
-                    mBuffer[3] = 0x03;
-                    mBuffer[4] = 0x03;
-                    stopSend = false;
-                    sendonce(true);
-                    rec_state = 0x03;
-                    break;
-                case 0x04:
-                    mBuffer = new byte[5];
-                    mBuffer[0] = 0x5A;
-                    mBuffer[1] = (byte) 0xA5;
-                    mBuffer[2] = 0x02;
-                    mBuffer[3] = 0x04;
-                    mBuffer[4] = 0x04;
-                    stopSend = false;
-                    sendonce(true);
-
-                    rec_state = 0x04;
-                    break;
-                case 0x05:
-                    rec_state = 0x05;
-                    if (mSendingThread != null)
-                        mSendingThread.setStopSend(true);
-                    break;
-                case 0x06:
-                    rec_state = 0x06;
-                    if (mSendingThread != null)
-                        mSendingThread.setStopSend(true);
-                    break;
-                case 0x07:
-                    rec_state = 0x07;
-                    if (mSendingThread != null)
-                        mSendingThread.setStopSend(true);
-                    break;
-                case 0x08:
-                    rec_state = 0x08;
-                    if (mSendingThread != null)
-                        mSendingThread.setStopSend(true);
-                    break;
-                case 0x09:
-                    rec_state = 0x09;
-                    if (mSendingThread != null)
-                        mSendingThread.setStopSend(true);
-                    break;
-                case 0x0A:
-                    rec_state = 0x0A;
-                    if (mSendingThread != null)
-                        mSendingThread.setStopSend(true);
-//                    isRecOK = true;
-                    break;
                 case 0x0B:
-                    rec_state = 0x0B;
-                    if (mSendingThread != null)
-                        mSendingThread.setStopSend(true);
-                    break;
-                case 0x0C:
-                    rec_state = 0x0C;
-                    if (mSendingThread != null)
-                        mSendingThread.setStopSend(true);
-                    break;
-                case 0x0D:
-                    rec_state = 0x0D;
-                    if (mSendingThread != null)
-                        mSendingThread.setStopSend(true);
-                    break;
-                case 0x0E:
-                    rec_state = 0x0E;
-                    if (mSendingThread != null)
-                        mSendingThread.setStopSend(true);
-                    break;
-                case 0x0F:
-                    rec_state = 0x0F;
+                    rec_state = 0x0B;                
                     if (mSendingThread != null)
                         mSendingThread.setStopSend(true);
                     break;
@@ -391,113 +309,13 @@ public class MainActivity extends SerialPortActivity {
 
                     yali1 = (buffer[4] & 0xFF) * 256 + (buffer[5] & 0xFF);
                     yali2 = (buffer[6] & 0xFF) * 256 + (buffer[7] & 0xFF);
-//                    wd1 = (buffer[8] & 0xFF) * 256 + (buffer[9] & 0xFF);
-//                    wd2 = (buffer[10] & 0xFF) * 256 + (buffer[11] & 0xFF);
-//                    wd3 = (buffer[12] & 0xFF) * 256 + (buffer[13] & 0xFF);
-//                    wd4 = (buffer[14] & 0xFF) * 256 + (buffer[15] & 0xFF);
-//                    yeti = (byte) (buffer[16] & 0xFF);
+
 //			Log.d("qwh", String.valueOf(buffer[16])+" "+String.valueOf(buffer[16])+" "+String.valueOf(buffer[16])+" "+String.valueOf(buffer[16]));
                     if (mSendingThread != null)
                         mSendingThread.setStopSend(true);
                     if (debugFragment != null) {
                         if (debugFragment.isVisible()) debugFragment.update();
                     }
-                    break;
-                case 0x11:
-                    rec_state = 0x11;
-                    if (mSendingThread != null)
-                        mSendingThread.setStopSend(true);
-//					Log.d("qwh", String.valueOf(guangqiang));
-                    break;
-                case 0x12:
-                    rec_state = 0x12;
-                    if (mSendingThread != null)
-                        mSendingThread.setStopSend(true);
-                    break;
-                case 0x14:
-                    rec_state = 0x14;
-                    if (mSendingThread != null)
-                        mSendingThread.setStopSend(true);
-                    break;
-                case 0x15:
-                    rec_state = 0x15;
-                    if (mSendingThread != null)
-                        mSendingThread.setStopSend(true);
-                    break;
-                case 0x16:
-                    rec_state = 0x16;
-                    if (mSendingThread != null)
-                        mSendingThread.setStopSend(true);
-                    break;
-                case 0x17:
-                    mBuffer = new byte[5];
-                    mBuffer[0] = 0x5A;
-                    mBuffer[1] = (byte) 0xA5;
-                    mBuffer[2] = 0x02;
-                    mBuffer[3] = 0x17;
-                    mBuffer[4] = 0x17;
-                    stopSend = false;
-                    sendonce(true);
-                    rec_state = 0x17;
-                    isCuiQu = true;
-                    break;
-                case 0x1A:
-                    suanzhi = (buffer[4] & 0xFF) * 256 * 256 * 256 + (buffer[5] & 0xFF) * 256 * 256 + (buffer[6] & 0xFF) * 256 + (buffer[7] & 0xFF);
-//					MainActivity.yangpinhao=2;
-                    mBuffer = new byte[5];
-                    mBuffer[0] = 0x5A;
-                    mBuffer[1] = (byte) 0xA5;
-                    mBuffer[2] = 0x02;
-                    mBuffer[3] = 0x1A;
-                    mBuffer[4] = 0x1A;
-                    stopSend = false;
-                    sendonce(true);
-                    rec_state = 0x1A;
-                    break;
-                case 0x1B:
-                    suanzhi = (buffer[4] & 0xFF) * 256 * 256 * 256 + (buffer[5] & 0xFF) * 256 * 256 + (buffer[6] & 0xFF) * 256 + (buffer[7] & 0xFF);
-//					MainActivity.yangpinhao=3;
-                    mBuffer = new byte[5];
-                    mBuffer[0] = 0x5A;
-                    mBuffer[1] = (byte) 0xA5;
-                    mBuffer[2] = 0x02;
-                    mBuffer[3] = 0x1B;
-                    mBuffer[4] = 0x1B;
-                    stopSend = false;
-                    sendonce(true);
-                    rec_state = 0x1B;
-                    break;
-                case 0x1C:
-                    suanzhi = (buffer[4] & 0xFF) * 256 * 256 * 256 + (buffer[5] & 0xFF) * 256 * 256 + (buffer[6] & 0xFF) * 256 + (buffer[7] & 0xFF);
-//					MainActivity.yangpinhao=4;
-                    mBuffer = new byte[5];
-                    mBuffer[0] = 0x5A;
-                    mBuffer[1] = (byte) 0xA5;
-                    mBuffer[2] = 0x02;
-                    mBuffer[3] = 0x1C;
-                    mBuffer[4] = 0x1C;
-                    stopSend = false;
-                    sendonce(true);
-                    rec_state = 0x1C;
-                    break;
-                case 0x22:
-                    rec_state = 0x22;
-                    if (mSendingThread != null)
-                        mSendingThread.setStopSend(true);
-//--2020-03-30--
-//                    try {
-//                        Log.d("qwh", String.valueOf((int) buffer[4]) + " " + String.valueOf(buffer[5]) + " " + String.valueOf(buffer[6]) + " " + String.valueOf(buffer[7]) + " " + String.valueOf(buffer[8]) + " " + String.valueOf(buffer[9]) + " ");
-//                        setDateTime(buffer[4] + 2000, buffer[5], buffer[6], buffer[7], buffer[8], buffer[9]);
-//                    } catch (IOException e) {
-//                        e.printStackTrace();
-//                    } catch (InterruptedException e) {
-//                        e.printStackTrace();
-//                    }
-                    break;
-                case 0x23:
-                    rec_state = 0x23;
-                    if (mSendingThread != null)
-                        mSendingThread.setStopSend(true);
                     break;
                 default:
                     break;
@@ -509,9 +327,10 @@ public class MainActivity extends SerialPortActivity {
     public void send() {
         once = false;
         if (mSerialPort != null) {
-            mSendingThread = new SendingThread();
-            sendCount = 0;
-            mSendingThread.start();
+
+                mSendingThread = new SendingThread();
+                sendCount = 0;
+                mSendingThread.start();
 
         }
     }
@@ -519,8 +338,9 @@ public class MainActivity extends SerialPortActivity {
     public void sendonce(boolean yici) {
         once = yici;
         if (mSerialPort != null) {
-            mSendingThread = new SendingThread();
-            mSendingThread.start();
+
+                mSendingThread = new SendingThread();
+                mSendingThread.start();
 
         }
     }
@@ -547,16 +367,16 @@ public class MainActivity extends SerialPortActivity {
      * @author ldm
      * @time 2017/9/1 17:19
      */
-    private void registerUDiskReceiver() {
-        //监听otg插入 拔出
-        IntentFilter usbDeviceStateFilter = new IntentFilter();
-        usbDeviceStateFilter.addAction(UsbManager.ACTION_USB_DEVICE_ATTACHED);
-        usbDeviceStateFilter.addAction(UsbManager.ACTION_USB_DEVICE_DETACHED);
-        registerReceiver(mOtgReceiver, usbDeviceStateFilter);
-        //注册监听自定义广播
-        IntentFilter filter = new IntentFilter(ACTION_USB_PERMISSION);
-        registerReceiver(mOtgReceiver, filter);
-    }
+//    private void registerUDiskReceiver() {
+//        //监听otg插入 拔出
+//        IntentFilter usbDeviceStateFilter = new IntentFilter();
+//        usbDeviceStateFilter.addAction(UsbManager.ACTION_USB_DEVICE_ATTACHED);
+//        usbDeviceStateFilter.addAction(UsbManager.ACTION_USB_DEVICE_DETACHED);
+//        registerReceiver(mOtgReceiver, usbDeviceStateFilter);
+//        //注册监听自定义广播
+//        IntentFilter filter = new IntentFilter(ACTION_USB_PERMISSION);
+//        registerReceiver(mOtgReceiver, filter);
+//    }
 
     /**
      * @description OTG广播，监听U盘的插入及拔出
